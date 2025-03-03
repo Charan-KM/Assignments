@@ -1,17 +1,19 @@
 import React from "react";
-import PropTypes from "prop-types";
 import TableHeader from "./TableHeader";
 import TableRow from "./TableRow";
 import TableContainer from "./TableContainer";
+import { Tabletypes } from "../constants/enums";
+import { COMPANY_DATA } from "../constants/mockData";
 
-const TableData = ({headers, data}) => {
-    if (!headers || !data || headers.length == 0 || data.length == 0) {
-        return(
-            <div>Data Unavailable</div>
-        )
+const TableData = () => {
+    const headers = Tabletypes.COMPANY_TABLE;
+    const data = COMPANY_DATA;
+
+    if (!headers || !data || headers.length === 0 || data.length === 0) {
+        return <div>Data Unavailable</div>;
     }
 
-    return(
+    return (
         <TableContainer>
             <table className="w-full border-collapse">
                 <TableHeader headers={headers} />
@@ -22,12 +24,7 @@ const TableData = ({headers, data}) => {
                 </tbody>
             </table>
         </TableContainer>
-    )
-}
-
-TableData.PropTypes = {
-    headers:PropTypes.arrayOf(PropTypes.string).isRequired,
-    data:PropTypes.arrayOf(PropTypes.object).isRequired
-}
+    );
+};
 
 export default TableData;
