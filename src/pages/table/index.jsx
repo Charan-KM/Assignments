@@ -1,5 +1,5 @@
 import React from "react";
-import TableData from "../../components/TableData";
+import TableData from "../../components/core/TableData";
 
 const TablePage = () => {
   return (

@@ -1,8 +1,8 @@
 import React from "react";
 import TableHeader from "./TableHeader";
 import TableRow from "./TableRow";
-import { TABLE_HEADERS } from "../constants/enums";
-import { COMPANY_DATA } from "../constants/mockData";
+import { TABLE_HEADERS } from "../../constants/enums";
+import { COMPANY_DATA } from "../../constants/mockData";
 
 const TableData = () => {
     const headers = TABLE_HEADERS.COMPANY_TABLE;
