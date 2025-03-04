@@ -1,7 +1,6 @@
 import React from "react";
 import TableHeader from "./TableHeader";
 import TableRow from "./TableRow";
-import TableContainer from "./TableContainer";
 import { Tabletypes } from "../constants/enums";
 import { COMPANY_DATA } from "../constants/mockData";
 
@@ -14,7 +13,7 @@ const TableData = () => {
     }
 
     return (
-        <TableContainer>
+        <div className="overflow-x-auto">
             <table className="w-full border-collapse">
                 <TableHeader headers={headers} />
                 <tbody>
@@ -23,7 +22,7 @@ const TableData = () => {
                     ))}
                 </tbody>
             </table>
-        </TableContainer>
+        </div>
     );
 };
 
