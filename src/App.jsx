@@ -1,13 +1,7 @@
-import React from 'react'
-import TableData from './components/TableData'
+import TablePage from "./pages/table";
 
 function App() {
-  return(
-    <div className='container mx-auto p-6'>
-      <h1 className="text-2xl font-bold mb-6">Dynamic Tables</h1>
-      <TableData />
-    </div>
-  )
+  return <TablePage />;
 }
 
 export default App;
