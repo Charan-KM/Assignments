@@ -17,7 +17,7 @@ const TableData = () => {
             <table className="w-full border-collapse">
                 <TableHeader headers={headers} />
                 <tbody>
-                    {data.map((row, index) => (
+                    {data?.map((row, index) => (
                         <TableRow key={index} row={row} headers={headers} />
                     ))}
                 </tbody>
