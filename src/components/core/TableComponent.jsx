@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { HEADER_LABELS } from "../../constants/enums";
+import { HEADER_LABELS } from "../../constants/stocks";
 
 const TableComponent = ({ headers, data }) => {
     if (!headers?.length || !data?.length) {
