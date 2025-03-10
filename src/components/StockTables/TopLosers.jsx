@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTopLosers } from "../../store/reducers/stockSlice";
-import { selectTopLosers, selectStocksStatus } from "../../store/selectors/stocks";
+import { fetchTopLosers } from "../../store/reducers/stock";
+import { selectTopLosers, selectStocksStatus } from "../../store/selectors/stock";
 import TableComponent from "../core/TableComponent";
 
 const TopLosers = () => {
