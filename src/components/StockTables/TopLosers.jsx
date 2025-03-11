@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTopLosers } from "../../store/reducers/stocks";
 import { selectTopLosers, selectStocksStatus } from "../../store/selectors/stocks";
-import TableComponent from "../core/TableComponent";
+import TableComponent from "../core/Table";
 
 const TopLosers = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const LOCAL_JSON_PATH = "/constants/ibmData.json"; 
+const LOCAL_JSON_PATH = "/constants/company.json"; 
 
 const initialState = {
   overview: null,
