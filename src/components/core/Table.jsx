@@ -15,7 +15,7 @@ const TableComponent = ({ headers, data }) => {
                     <tr>
                         {headers.map((header, index) => (
                             <th key={index} className="p-3 text-left border-b-2 border-gray-200 bg-gray-100 font-semibold">
-                                {HEADER_LABELS[header] || header}
+                                {HEADER_LABELS[header] || header.toUpperCase()}
                             </th>
                         ))}
                     </tr>
@@ -23,15 +23,13 @@ const TableComponent = ({ headers, data }) => {
                 <tbody>
                     {data.map((row, rowIndex) => (
                         <tr key={rowIndex} className="cursor-pointer hover:bg-gray-200">
-                            <td colSpan={headers.length} className="p-3 border-b border-gray-200">
-                                <Link to={`/company/${row.ticker}`} className="flex w-full">
-                                    {headers.map((header, colIndex) => (
-                                        <span key={colIndex} className="px-2">
-                                            {row[header] || ""}
-                                        </span>
-                                    ))}
-                                </Link>
-                            </td>
+                            {headers.map((header, colIndex) => (
+                                <td key={colIndex} className="p-3 border-b border-gray-200 text-left">
+                                    <Link to={`/company/${row.ticker}`} className="block w-full">
+                                        {row[header] || "-"}
+                                    </Link>
+                                </td>
+                            ))}
                         </tr>
                     ))}
                 </tbody>
