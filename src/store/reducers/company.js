@@ -54,7 +54,6 @@ export const fetchCompanyOverview = () => async (dispatch) => {
     const response = await axios.get(LOCAL_JSON_PATH);
     dispatch(fetchCompanyOverviewSuccess(response.data));
   } catch (error) {
-    console.error("Company Overview Fetch Error:", error);
     dispatch(fetchCompanyOverviewFailure(error.message));
   }
 };
@@ -70,7 +69,6 @@ export const fetchIncomeStatement = () => async (dispatch) => {
 
     dispatch(fetchIncomeStatementSuccess(response.data.IncomeStatement));
   } catch (error) {
-    console.error("Income Statement Fetch Error:", error);
     dispatch(fetchIncomeStatementFailure(error.message));
   }
 };
