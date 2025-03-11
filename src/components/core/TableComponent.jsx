@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { HEADER_LABELS } from "../../constants/stocks";
+import { Link } from "react-router-dom";
 
 const TableComponent = ({ headers, data }) => {
     if (!headers?.length || !data?.length) {
@@ -21,12 +22,16 @@ const TableComponent = ({ headers, data }) => {
                 </thead>
                 <tbody>
                     {data.map((row, rowIndex) => (
-                        <tr key={rowIndex}>
-                            {headers.map((header, colIndex) => (
-                                <td key={colIndex} className="p-3 border-b border-gray-200">
-                                    {row[header] || ""}
-                                </td>
-                            ))}
+                        <tr key={rowIndex} className="cursor-pointer hover:bg-gray-200">
+                            <td colSpan={headers.length} className="p-3 border-b border-gray-200">
+                                <Link to={`/company/${row.ticker}`} className="flex w-full">
+                                    {headers.map((header, colIndex) => (
+                                        <span key={colIndex} className="px-2">
+                                            {row[header] || ""}
+                                        </span>
+                                    ))}
+                                </Link>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
