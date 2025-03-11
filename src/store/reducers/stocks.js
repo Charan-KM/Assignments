@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const LOCAL_JSON_PATH = "src/constants/gainers.json";
+const LOCAL_JSON_PATH = "/constants/gainers.json";
 
 const stockSlice = createSlice({
   name: "stocks",
