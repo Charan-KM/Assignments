@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import stockReducer from "./reducers/stocks";
+import stocksReducer from "./reducers/stocks";
+import companyReducer from "./reducers/company";
 
 const store = configureStore({
   reducer: {
-    stocks: stockReducer,
+    stocks: stocksReducer,
+    company: companyReducer, // ✅ Added company reducer
   },
 });
 
