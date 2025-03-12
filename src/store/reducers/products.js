@@ -52,7 +52,6 @@ export const {
   setSelectedCategory,
 } = productsSlice.actions;
 
-// Fetch categories
 export const fetchCategories = () => async (dispatch) => {
   dispatch(setLoading(true));
   try {
@@ -65,7 +64,6 @@ export const fetchCategories = () => async (dispatch) => {
   }
 };
 
-// Fetch products with optional category and pagination
 export const fetchProducts = ({ category, skip }) => async (dispatch, getState) => {
   dispatch(setLoading(true));
   const limit = getState().products.limit;
