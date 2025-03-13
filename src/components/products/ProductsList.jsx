@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCategories, fetchProducts, setSelectedCategory } from "../../store/reducers/products";
 import { selectProducts, selectCategories, selectLoading, selectHasMore } from "../../store/selectors/products";
+import TableComponent from "../../components/core/Table";
 
 const ProductsList = () => {
   const dispatch = useDispatch();
@@ -36,9 +37,19 @@ const ProductsList = () => {
     [loading, hasMore, fetchMoreProducts]
   );
 
+  const headers = ["title", "category", "price", "rating", "stock"];
+  const formattedData = products.map((product) => ({
+    title: product.title,
+    category: product.category,
+    price: `$${product.price.toFixed(2)}`,
+    rating: product.rating,
+    stock: product.stock,
+  }));
+
   return (
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Products</h2>
+
       <div className="mb-4 flex flex-wrap gap-2">
         {categories.map((category) => (
           <button
@@ -51,30 +62,7 @@ const ProductsList = () => {
         ))}
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="border p-2">Name</th>
-              <th className="border p-2">Category</th>
-              <th className="border p-2">Price</th>
-              <th className="border p-2">Rating</th>
-              <th className="border p-2">Stock</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product, index) => (
-              <tr key={product.id} ref={index === products.length - 1 ? lastProductRef : null} className="hover:bg-gray-50">
-                <td className="border p-2">{product.title}</td>
-                <td className="border p-2">{product.category}</td>
-                <td className="border p-2">${product.price.toFixed(2)}</td>
-                <td className="border p-2">{product.rating}</td>
-                <td className="border p-2">{product.stock}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <TableComponent headers={headers} data={formattedData} />
 
       {loading && <p className="text-center p-4">Loading more products...</p>}
       {!loading && products.length === 0 && <p className="text-center p-4">No products found</p>}
