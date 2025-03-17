@@ -63,7 +63,6 @@ export const {
 } = productsSlice.actions;
 
 
-// Fetch categories
 export const fetchCategories = () => async (dispatch) => {
     dispatch(setLoading(true));
     try {
