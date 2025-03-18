@@ -21,3 +21,8 @@ export const selectHasMore = createSelector(
   selectProductsState,
   (productsState) => productsState.hasMore
 );
+
+export const selectError = createSelector(
+  selectProductsState,
+  (productsState) => productsState.error
+);
